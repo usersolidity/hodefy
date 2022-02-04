@@ -1,13 +1,22 @@
 import express from 'express';
 import {startServer} from './utils/server.js';
 import { ServerConfig } from './interfaces/server';
+import {setMongoConnection} from './middleware/db.js';
+import { PORT } from "./constants/index.js";
 import 'dotenv/config';
 
+// Routes
+import propertiesRoutes from './routes/properties.js';
+
 const app = express();
-console.log(process.env.AWS_ACCESS_KEY_ID, typeof process.env.AWS_ACCESS_KEY_ID)
+
+// Connect to mongodb
+app.use(setMongoConnection);
+
+app.use('/properties', propertiesRoutes);
 
 startServer((config: ServerConfig) => {
     app.listen(config.port);    
-},{port: 4000});
+},{port: PORT});
 
  

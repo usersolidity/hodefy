@@ -18,6 +18,7 @@
     "aws-sdk": "^2.1068.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
+    "mongodb": "^4.3.1",
     "multer": "^1.4.4"
   },
   "devDependencies": {

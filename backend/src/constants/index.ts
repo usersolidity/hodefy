@@ -8,5 +8,7 @@ export const AWS_CONFIG: AWSConfig = {
 
 export const UPLOAD_DIR = 'uploads';
 
+export const PORT = 4000;
+
 
 // pPFDZH4Acw1a/E1untRtXExKIKt3bIuV8M9xhGwu
