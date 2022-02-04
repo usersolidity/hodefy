@@ -5,13 +5,14 @@ import fs from 'fs';
 import { client } from "../utils/s3.js";
 import {upload} from '../helpers/aws/index.js';
 import path from 'path';
+import {Property} from '../models/property.js';
 
 export const uploadPicturesToS3 = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const propertyId = req.params.propertyId;
+  const userAddress = req.body.userAddress;
   const files: any = req.files;
   console.log('the files', files)
   const attachments: [UploadParams] = files.map((elem: any) => {
@@ -35,7 +36,7 @@ export const uploadPicturesToS3 = async (
     });
     return {
       Bucket: process.env.AWS_S3_BUCKET,
-      Key: `user/12/properties/${propertyId}/${elem.originalname}`,
+      Key: `user/${userAddress}/properties/${elem.originalname}`,
       Body: fileStream,
       ACL: "public-read",
     };
@@ -59,5 +60,7 @@ export const uploadPicturesToS3 = async (
   const links = responses.map(elem => {
     return elem?.Location;
   });
-  return res.status(204).send();
+  const newProperty = new Property(userAddress, links);
+  const savedProperty = await newProperty.save();
+  return res.status(204).json({property: savedProperty});
 };
