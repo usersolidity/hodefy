@@ -23,7 +23,7 @@ We can take advantage of the benefits that blockchain technology offers us, whic
 ### Hodefy Team :mage: 
 * **Anthony Pérez** - *Business Development & Data Scienctist* 
 * **Gilberto Walle** - *Backend Developer* 
-* **Mehdi Rhouzlane** - Philip Lu
+* **Mehdi Rhouzlane** - *Blockchain Developer*
 * **Socheat Leang** - *Frontend Developer* 
 * **Philip Lu** - *Blockchain Developer* 
 
