@@ -21,9 +21,9 @@ We can take advantage of the benefits that blockchain technology offers us, whic
 * [Moralis](https://docs.moralis.io/introduction/readme) - NFT balance of the Buyer/Seller
 
 ### Hodefy Team :mage: 
-* **Anthony Pérez** - *Business Development & Data Scienctist* 
+* **Anthony Pérez** - *Business Development & Data Scientist* 
 * **Gilberto Walle** - *Backend Developer* 
-* **Mehdi Rhouzlane** - *Blockchain Developer*
+* **Mehdi Rhouzlane** - *Blockchain Developer & Data Scientist*
 * **Socheat Leang** - *Frontend Developer* 
 * **Philip Lu** - *Blockchain Developer* 
 
