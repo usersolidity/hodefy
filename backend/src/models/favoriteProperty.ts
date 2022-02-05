@@ -2,6 +2,7 @@ import { getDb } from '../utils/database.js';
 import {Property} from './property.js'
 
 
+/*
 export class FavoriteProperty extends Property {
 
     constructor(ownerAddress: string, links: string[], public readonly userAddress: string) {
@@ -21,3 +22,4 @@ export class FavoriteProperty extends Property {
         }
     }
 }
+*/
