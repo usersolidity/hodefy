@@ -14,10 +14,11 @@ export const saveProperty = async (
 ) => {
   const userAddress = req.body.ownerAddress;
   const city = req.body.city;
-  const nftToken = req.body.nftToken;
+  const nftToken = null;
   const country = req.body.country;
   const streetAddress = req.body.streetAddress;
   const files: any = req.files;
+  const metadataURI: string = req.body.metadataURI;
 
   const attachments: [UploadParams] = files.map((elem: any) => {
     if (
@@ -61,7 +62,7 @@ export const saveProperty = async (
   const links = responses.map((elem) => {
     return elem?.Location;
   });
-  const newProperty = new Property(userAddress, links, nftToken, city, country, streetAddress);
+  const newProperty = new Property(userAddress, links, nftToken, city, country, streetAddress, metadataURI);
   const savedProperty = await newProperty.save();
   return res.status(201).json({ propertyId: savedProperty.insertedId });
 };
