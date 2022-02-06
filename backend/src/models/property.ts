@@ -8,13 +8,14 @@ export class Property {
     public nftToken: string,
     public city: string,
     public country: string,
+    public streetAddress: string,
   ) {
     this.ownerAddress = ownerAddress;
     this.links = links;
     this.nftToken = nftToken;
     this.city = city;
     this.country = country;
-
+    this.streetAddress = streetAddress;
   }
 
   async save(this: Property) {
