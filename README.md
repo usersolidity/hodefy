@@ -19,6 +19,8 @@ We can take advantage of the benefits that blockchain technology offers us, whic
 * [Chainlink](https://docs.chain.link/docs/using-chainlink-reference-contracts/) - Data Feeds
 * [Sequence](https://docs.sequence.build/build-with-sequence/installation) - Wallet
 * [Moralis](https://docs.moralis.io/introduction/readme) - NFT balance of the Buyer/Seller
+* [The Graph - Subraph Studio](https://thegraph.com/studio/) - Building Subgraphs 
+* [Superfluid](https://docs.superfluid.finance/superfluid/) - Wrapped Hodefy SuperToken 
 
 ### Hodefy Team :mage: 
 * **Anthony Pérez** - *Business Development & Data Scientist* 
