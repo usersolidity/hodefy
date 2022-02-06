@@ -3,46 +3,28 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { Button, Modal, TextField, Typography } from "@mui/material";
+import { useMoralis } from "react-moralis";
 
-import RLogin, { RLoginButton } from "@rsksmart/rlogin";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-
-// construct rLogin pop-up in DOM
-const rLogin = new RLogin({
-  cachedProvider: true, // change to true to cache user's wallet choice
-  providerOptions: {
-    // read more about providers setup in https://github.com/web3Modal/web3modal/
-    walletconnect: {
-      package: WalletConnectProvider, // setup wallet connect for mobile wallet support
-      options: {
-        rpc: {
-          31: "https://public-node.testnet.rsk.co", // use RSK public nodes to connect to the testnet
-        },
-      },
-    },
-  },
-  supportedChains: [31], // enable rsk testnet network
-});
-
+import logo from "./assets/images/logo.png";
+import rocket from "./assets/images/rocket.png";
 export default function App() {
   const [openForm, setOpenForm] = React.useState(false);
-  const [account, setAccount] = React.useState(null);
-  const [provider, setProvider] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const { authenticate, isAuthenticated, user, logout } = useMoralis();
 
-  const connect = () =>
-    rLogin.connect().then(({ provider }) => {
-      // the provider is used to operate with user's wallet
-      setProvider(provider);
+  const connect = () => {};
 
-      console.log("request => ", JSON.stringify(provider, null, 2));
-      // request user's account
-      provider
-        .request({ method: "eth_accounts" })
-        .then(([account]) => setAccount(account));
-    });
-
-  const openSignInForm = () => {
-    setOpenForm(true);
+  const openSignInForm = async () => {
+    if (!isAuthenticated) {
+      setIsLoading(true);
+      await authenticate();
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+      await logout();
+      setIsLoading(false);
+    }
+    // setOpenForm(true);
   };
 
   const handleCloseForm = () => {
@@ -68,10 +50,7 @@ export default function App() {
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <img
-              src={require("./assets/images/logo.png")}
-              style={{ width: 60, height: 60 }}
-            />
+            <img src={logo} style={{ width: 60, height: 60 }} />
             <span
               style={{
                 marginLeft: 20,
@@ -94,14 +73,17 @@ export default function App() {
               sx={{ backgroundColor: "#FFF", borderRadius: 25 }}
             />
           </Box>
-          <RLoginButton onClick={connect}>Connect wallet</RLoginButton>
-          {/* <Button
+
+          <Button
             variant="container"
             style={{ backgroundColor: "#FFF", borderRadius: 30, height: 60 }}
             onClick={openSignInForm}
+            disabled={isLoading}
           >
-            Login/Register
-          </Button> */}
+            {`${
+              isAuthenticated ? `connected: ${user.getUsername()}` : "connect"
+            } `}
+          </Button>
         </Box>
         <Box
           sx={{
@@ -114,7 +96,6 @@ export default function App() {
             <p style={{ fontSize: 72, lineHeight: 0, marginTop: 100 }}>
               <span>HO</span>
               <span style={{ color: "#FFF" }}>DEFY</span>
-              <span>{(`    Account connected: `, account)}</span>
             </p>
             <p
               style={{
@@ -137,10 +118,7 @@ export default function App() {
               mt: 10,
             }}
           >
-            <img
-              src={require("./assets/images/rocket.png")}
-              style={{ width: 600, height: "auto" }}
-            />
+            <img src={rocket} style={{ width: 600, height: "auto" }} />
           </Box>
         </Box>
       </Container>
