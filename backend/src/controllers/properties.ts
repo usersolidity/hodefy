@@ -70,7 +70,7 @@ export const fetchPropertyById = async (req: Request, res: Response) => {
   const propertyId = new ObjectId(req.params.propertyId);
 
   const property = await Property.findById(propertyId);
-  return res.status(200).json(property);
+  return res.status(200).json(property[0]);
 };
 
 export const fetchPropertiesByLocation = async (req: Request, res: Response) => {
