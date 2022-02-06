@@ -5,10 +5,12 @@ export class Property {
   constructor(
     public readonly ownerAddress: string,
     public links: string[],
-    public nftToken: string,
+    public nftToken: string | null,
     public city: string,
     public country: string,
-    public streetAddress: string
+    public streetAddress: string,
+    public metadataURI: string
+
   ) {
     this.ownerAddress = ownerAddress;
     this.links = links;
@@ -16,6 +18,7 @@ export class Property {
     this.city = city;
     this.country = country;
     this.streetAddress = streetAddress;
+    this.metadataURI = metadataURI;
   }
 
   async save(this: Property) {
@@ -43,6 +46,7 @@ export class Property {
               streetAddress: 1,
               city: 1,
               country: 1,
+              metadataURI: 1
             },
           },
         ])
