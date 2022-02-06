@@ -17,8 +17,7 @@ We can take advantage of the benefits that blockchain technology offers us, whic
 * [Solidity](https://solidity-es.readthedocs.io/es/latest/introduction-to-smart-contracts.html) - Smart contracts
 * [Polygon](https://learn.figment.io/tutorials/build-an-nft-marketplace-using-hardhat) - NFT minting
 * [Chainlink](https://docs.chain.link/docs/using-chainlink-reference-contracts/) - Data Feeds
-* [Sequence](https://docs.sequence.build/build-with-sequence/installation) - Wallet
-* [Moralis](https://docs.moralis.io/introduction/readme) - NFT balance of the Buyer/Seller
+* [Moralis](https://docs.moralis.io/introduction/readme) - NFT balance of the Buyer/Seller, Wallet integration & NFT Metadata Storage
 * [The Graph - Subraph Studio](https://thegraph.com/studio/) - Building Subgraphs 
 * [Superfluid](https://docs.superfluid.finance/superfluid/) - Wrapped Hodefy SuperToken 
 
