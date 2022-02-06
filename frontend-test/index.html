@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+</head>
+<body>
+	<h1>TEST</h1>
+<button id="login">Sign in</button>
+
+<script>
+const login = document.getElementById("login");
+login.addEventListener("click", async function() {
+    console.log('inside login')
+    Moralis.initialize("SdgLZF7xFQqBhq60SebMci2A1a8DlBKHJDqrTFKb");
+    Moralis.serverURL = "https://6ffhz4creez7.usemoralis.com:2053/server";
+    let currentUser = Moralis.User.current();
+    console.log("currentUser ", currentUser);
+    if (!currentUser) {
+        currentUser = await Moralis.authenticate();
+    }
+
+})
+    </script>
+</body>
+</html>
