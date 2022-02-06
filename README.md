@@ -18,7 +18,7 @@ We can take advantage of the benefits that blockchain technology offers us, whic
 * [Polygon](https://learn.figment.io/tutorials/build-an-nft-marketplace-using-hardhat) - NFT minting
 * [Chainlink](https://docs.chain.link/docs/using-chainlink-reference-contracts/) - Data Feeds
 * [Moralis](https://docs.moralis.io/introduction/readme) - NFT balance of the Buyer/Seller, Wallet integration & NFT Metadata Storage
-* [The Graph - Subraph Studio](https://thegraph.com/studio/) - Building Subgraphs 
+* [The Graph - Subraph Studio](https://thegraph.com/studio/) - Data Querying on SmartContract (Hodefy NFT) 
 * [Superfluid](https://docs.superfluid.finance/superfluid/) - Wrapped Hodefy SuperToken 
 
 ### Hodefy Team :mage: 
