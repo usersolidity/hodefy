@@ -1,10 +1,35 @@
 {
   "name": "hardhat-project",
   "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-waffle": "^2.0.2",
+    "chai": "^4.3.6",
     "erc721a": "^2.0.0",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.5.4",
     "hardhat": "^2.8.3"
   },
   "dependencies": {
     "@chainlink/contracts": "^0.3.1"
-  }
+  },
+  "description": "<p> Hodefy is a a global marketplace to accelerate transactions and improve the traceability of the purchase, sale and lease of real estate through blockchain technology in order to ensure a greater transparency in any operation involving an exchange of ownership of real estate. </p>",
+  "version": "1.0.0",
+  "main": "hardhat.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GWG12/hodefy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GWG12/hodefy/issues"
+  },
+  "homepage": "https://github.com/GWG12/hodefy#readme"
 }
