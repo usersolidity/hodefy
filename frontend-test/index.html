@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+</head>
+<body>
+	<h1>TEST</h1>
+<button id="login">Sign in</button>
+
+<script>
+const login = document.getElementById("login");
+login.addEventListener("click", async function() {
+    console.log('inside login')
+    Moralis.start({serverUrl: "https://6ffhz4creez7.usemoralis.com:2053/server", appId:"SdgLZF7xFQqBhq60SebMci2A1a8DlBKHJDqrTFKb"});
+    // Moralis.serverUrl = "https://6ffhz4creez7.usemoralis.com:2053/server";
+    
+    let currentUser = Moralis.User.current();
+    console.log("currentUser ", currentUser);
+    if (!currentUser) {
+        currentUser = await Moralis.authenticate();
+    }
+    const address =  currentUser.get('ethAddress');
+    console.log(`User address: ${address}`)
+
+    const transactions = await Moralis.Web3API.account.getTransactions();
+    console.log('transactions', transactions)
+
+    const balance = await Moralis.Web3API.account.getNativeBalance({chain:'rinkeby'});
+    console.log('balance ', balance)
+
+    // More info for the NFT Moralis API on: https://github.com/nft-api/nft-api#getnfts
+    const options = { q: "Pancake", chain: "bsc", filter: "name" };
+    const NFTs = await Moralis.Web3API.token.searchNFTs(options);
+    console.log('NFTs ', NFTs)
+})
+    </script>
+</body>
+</html>
